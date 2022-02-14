@@ -18,7 +18,21 @@ void
 RTFCNDCL
 TimerHandler(PVOID context)
 {
-    // TO DO:
-    // Your timer handler code here.
+	//double time = 0;
+	//double counts = 0;
+	//LARGE_INTEGER nFreq;
+	//LARGE_INTEGER nBeginTime;
+	//LARGE_INTEGER nEndTime;
+	//QueryPerformanceFrequency(&nFreq);
+	//QueryPerformanceCounter(&nBeginTime);//开始计时  
+
+	// TO DO:
+	// Your timer handler code here.
+	AD_Sampling();
+	//RtWprintf(L"Timer proc...\n");
+
+	//QueryPerformanceCounter(&nEndTime);//停止计时  
+	//time = (double)(nEndTime.QuadPart - nBeginTime.QuadPart) / (double)nFreq.QuadPart;//计算程序执行时间单位为s  
+	//测算的时间为0.7ms
 }
 

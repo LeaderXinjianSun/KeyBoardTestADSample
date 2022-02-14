@@ -17,4 +17,23 @@
   <ItemGroup>
     <None Include="ReadMe.txt" />
   </ItemGroup>
- </Project>
+  <ItemGroup>
+    <ClInclude Include="..\Souce\KeyBoardTestADSample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Souce\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Souce\KeyBoardTestADSample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Souce\KeyBoardTestADSampleRtTimerThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Souce\PCI1710Configuration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
