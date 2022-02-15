@@ -50,6 +50,19 @@ int _tmain(int argc, _TCHAR * argv[])
 	PCI1710Configuration_Initialize();
 	PCI1710BaseAddress1 = PCI1710Configuration_IOAddress();
 	AD_SampleInitialize();
+
+
+	// Create the shared memory region used to communicate with the user-space producer.
+	hShCSB = RtCreateSharedMemory(PAGE_READWRITE, 0, sizeof(RTCONSUMERCSB), SharedMemoryName, (void**)&pSharedMemory);
+
+	if (hShCSB == NULL)
+	{
+		DWORD error = GetLastError();
+		RtPrintf("RtConsumer: Failed to create shared memory region: error = %d\n", error);
+		return 1;
+	}
+
+
     // Create a periodic timer
     if (!(hTimer = RtCreateTimer(NULL,            // Ignored
                                  0,               // Stack size (0 means use default size)
