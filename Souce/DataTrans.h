@@ -10,14 +10,14 @@ namespace ADSampleDataTrans
 	public:
 		static PRTCONSUMERCSB mPSharedMemory = NULL;
 		static void openMemory(void);
-		static cli::array<unsigned short>^ getChannel0();
-		static unsigned short getChannel0LastValue();
-		static cli::array<unsigned short>^ getChannel1();
-		static unsigned short getChannel1LastValue();
-		static cli::array<unsigned short>^ getChannel2();
-		static unsigned short getChannel2LastValue();
-		static cli::array<unsigned short>^ getChannel3();
-		static unsigned short getChannel3LastValue();
+		static cli::array<double>^ getChannel0(int length);
+		static double getChannel0LastValue();
+		static cli::array<double>^ getChannel1(int length);
+		static double getChannel1LastValue();
+		static cli::array<double>^ getChannel2(int length);
+		static double getChannel2LastValue();
+		static cli::array<double>^ getChannel3(int length);
+		static double getChannel3LastValue();
 	private:
 
 	};
