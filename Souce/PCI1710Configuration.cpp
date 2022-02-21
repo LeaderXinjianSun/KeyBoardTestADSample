@@ -1,11 +1,10 @@
 #include "KeyBoardTestADSample.h"
-
-#define PCI1710_BUS 5
-#define PCI1710_DEVICE 15
+#define PCI1710_BUS 2
+#define PCI1710_DEVICE 13
 #define PCI1710_FUNCTION 0
-using namespace std;
+//using namespace std;
 int PCI1710BaseAddress = -1;
-int PCI1710ID = 0xC080;
+int PCI1710ID = 0xE080;
 PPCI_COMMON_CONFIG PCI1710Data;
 UCHAR buffer[PCI_COMMON_HDR_LENGTH];
 
@@ -13,9 +12,20 @@ void PCI1710Configuration_Initialize() {
 	PCI_SLOT_NUMBER SlotNumber;
 	PPCI_COMMON_CONFIG Pci1710Data;
 	ULONG bytesWritten = 0;
-
+	RtPrintf("PCI1710_BUS %d\n", PCI1710_BUS);
+	RtPrintf("PCI1710_DEVICE %d\n", PCI1710_DEVICE);
+	RtPrintf("PCI1710_FUNCTION %d\n", PCI1710_FUNCTION);
+	RtPrintf("PCI1710ID: %04X\n", PCI1710ID);
 	Pci1710Data = (PPCI_COMMON_CONFIG)buffer;
 	SlotNumber.u.bits.Reserved = 0;
+	//LPCTSTR path = _T("c:\\Config.ini");
+	//UINT _bus = GetPrivateProfileInt(_T("PCIDevice"), _T("BUS"), 5, path);
+	//UINT _device = GetPrivateProfileInt(_T("PCIDevice"), _T("DEVICE"), 14, path);
+	//UINT _function = GetPrivateProfileInt(_T("PCIDevice"), _T("FUNCTION"), 0, path);
+
+	//SlotNumber.u.bits.DeviceNumber = _device;
+	//SlotNumber.u.bits.FunctionNumber = _function;
+	//bytesWritten = RtGetBusDataByOffset(PCIConfiguration, _bus, SlotNumber.u.AsULONG, Pci1710Data, 0, PCI_COMMON_HDR_LENGTH);
 	SlotNumber.u.bits.DeviceNumber = PCI1710_DEVICE;
 	SlotNumber.u.bits.FunctionNumber = PCI1710_FUNCTION;
 	bytesWritten = RtGetBusDataByOffset(PCIConfiguration, PCI1710_BUS, SlotNumber.u.AsULONG, Pci1710Data, 0, PCI_COMMON_HDR_LENGTH);

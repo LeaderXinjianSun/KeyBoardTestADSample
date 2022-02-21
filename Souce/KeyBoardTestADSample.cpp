@@ -33,6 +33,7 @@ void AD_SampleInitialize(void)	//	AD sample initialize
 
 int _tmain(int argc, _TCHAR * argv[])
 {
+
 	HANDLE hShCSB = NULL;
 	extern PRTCONSUMERCSB pSharedMemory;
 	pSharedMemory = NULL;
@@ -49,8 +50,9 @@ int _tmain(int argc, _TCHAR * argv[])
     liPeriod.QuadPart = 10000;
 	PCI1710Configuration_Initialize();
 	PCI1710BaseAddress1 = PCI1710Configuration_IOAddress();
+	RtPrintf("PCI1710BaseAddress: %d\n\n", PCI1710BaseAddress1);
 	AD_SampleInitialize();
-
+	
 
 	// Create the shared memory region used to communicate with the user-space producer.
 	hShCSB = RtCreateSharedMemory(PAGE_READWRITE, 0, sizeof(RTCONSUMERCSB), SharedMemoryName, (void**)&pSharedMemory);
@@ -94,9 +96,14 @@ int _tmain(int argc, _TCHAR * argv[])
     //
     // TO DO:  your program code here
     //
-	RtWprintf(L"*** test Start\n");
+	//RtWprintf(L"*** test Start\n");
+
 	do
 	{
+		//RtPrintf("Channel0: %d\n", pSharedMemory->Channel0[DataLimit - 1]);
+		//RtPrintf("Channel1: %d\n", pSharedMemory->Channel1[DataLimit - 1]);
+		//RtPrintf("Channel2: %d\n", pSharedMemory->Channel2[DataLimit - 1]);
+		//RtPrintf("Channel3: %d\n", pSharedMemory->Channel3[DataLimit - 1]);
 		Sleep(1000);
 	} while (true);
  

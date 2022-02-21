@@ -12,7 +12,7 @@ using namespace std;
 // real-time code will use to communcate.
 #define SharedMemoryName L"WindowsRealtimeSharedMemory"
 
-#define DataLimit 2000
+#define DataLimit 1000
 
 typedef struct RtConsumerCSB
 {
